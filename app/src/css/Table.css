@@ -1,0 +1,23 @@
+.Table-header {
+    background-color: #ccc;
+    color: blue;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+ 
+.Table {
+    width: 100%;
+    border: 1px solid black;
+    text-align: center;
+}
+ 
+.Odd-Row {
+    background-color: plum;
+    border: 1px solid black;
+}
+ 
+.Even-Row {
+    background-color: greenyellow;
+    border: 1px solid black;
+}
