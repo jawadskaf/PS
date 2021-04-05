@@ -147,3 +147,7 @@ min-height:75px !important;
   background-color: #E0E0E0;
   opacity: 0.85;
 }
+
+.textauto {
+  text-align: left;
+}

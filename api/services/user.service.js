@@ -605,3 +605,61 @@ exports.adoptCat = (req, res) => {
      }
    })
  };
+
+ exports.reportPet = (req, res) => {
+  //const {userid} = req.body;
+   const {breed} = req.body;
+   const {petType} = req.body;
+   const {DOB} = req.body;
+   const {color} = req.body;
+   const {appearanceDescription} = req.body;
+   const {sex} = req.body;
+   const {dateMissing} = req.body;
+   const {circumstances} = req.body;
+   const {locationLost} = req.body;
+   const {username} = req.body;
+   const {phonenumber} = req.body;
+   const {email} = req.body;
+   const {otherDescription} = req.body;
+  
+ 
+   let sql = `INSERT INTO PETSLOST (breed, petType, DOB, color,appearanceDescription, sex, dateMissing,circumstances,locationLost,username,phonenumber,email,otherDescription) VALUES ("${breed}", "${petType}", "${DOB}", "${color}", "${appearanceDescription}", "${sex}", "${dateMissing}", "${circumstances}", "${locationLost}", "${username}", "${phonenumber}", "${email}", "${otherDescription}")`;
+  console.log(sql)
+   pool.getConnection((err, connection)=>{
+     if(err) throw err;
+     try{
+       connection.query(sql, (err, result)=>{
+         connection.release();
+         if(err)
+         {
+           res.status(500).send({
+             message: 'The query not OK',
+             error: err,
+           })
+         }
+         res.status(200).send({
+           message: 'pet lost INSERTED TO THE DATABASE',
+           result: result,
+         });
+       })
+     }catch(err)
+     {
+       res.status(500).send({message: 'An internal error occured.'});
+     }
+   })
+ };
+
+ exports.getLostPets = (req, res) => {
+  let sql = `SELECT * FROM PETSLOST`;
+  pool.getConnection((err, connection)=>{
+    if(err) throw err;
+    connection.query(sql, (err, result)=>{
+      if(err)
+      {
+        res.status(500).send({message: 'could not fetch lost pets'})
+      }else{
+        res.status(200).send({data: result, message: 'success'});
+      }
+    });
+  })
+};

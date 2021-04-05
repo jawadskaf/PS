@@ -40,6 +40,8 @@ router.post('/adoptDog', users.adoptDog);
 router.get('/getCats', users.getCats);
 router.post('/adoptCat', users.adoptCat);
 
+router.get('/getLostPets', users.getLostPets);
+router.post('/reportPet', users.reportPet);
 
 module.exports = router
 
