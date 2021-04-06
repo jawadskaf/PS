@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component,useState, useEffect } from 'react';
 import {Link} from "react-router-dom";
 import { reportPet, getLostPets } from "../actions/actions";
 import { connect } from 'react-redux';
 import actions from '../redux/actions/lostpets';
 import PhoneInput from 'react-phone-number-input/input'
+import Geocode from 'react-geocode'
 import { Form, Button, FormGroup, FormControl, ControlLabel, Col } from "react-bootstrap";
+import ProgressButton from 'react-progress-button'
+// var geocoder= new google.maps.Geocoder();
 import '../App.css';
+
 class ReportPet extends Component {
     constructor() {
         super();
@@ -24,48 +28,48 @@ class ReportPet extends Component {
             phonenumber: "",
             email: "",
             otherDescription: "",
-            latitude: "",
-            longitude: "",
+            lat: "",
+            long: "",
+            coordinates:"",
 
         };
         
-    //    this.componentDidMount = this.componentDidMount.bind(this);
+      
+        
+    //    this.getLoc = this.getLoc.bind(this);
  
     }
+    
 
     componentDidMount() {
          this.props.dispatch(actions.getLostPets());
+          Geocode.setApiKey("AIzaSyBcmt-Myz4u8UZFo825k2jSJIZxss7QE4w");
+         Geocode.setLanguage("en");
+
          if ("geolocation" in navigator) {
             console.log("Available");
           } else {
             console.log("Not Available");
-          }         
-         
+          }     
           if (navigator.geolocation) {
             navigator.geolocation.watchPosition(function(position) {
-                console.log("Latitude is :", position.coords.latitude);
-              console.log("Longitude is :", position.coords.longitude);
-            //   this.state.latitude  = position.coords.latitude;
-            //   console.log(this.state.latitue + " hello")
-            //   this.longitude = position.coords.longitude;
-            //   this.setState({longitude: this.longitude})
-            //   console.log(this.longitude + " hello")
-            //   this.locationLost = (this.latitue + this.longitude)
-            //   console.log(this.locationLost)
-            
-        
-        
-               
-               
-            
-            });
-        }
+               window.latit = position.coords.latitude;
+               window.longit= position.coords.longitude;        
+        });
         
     }
+    
+  
+          
+ 
+     
+    }
+  
     RegisterClickHandler = () =>
     {
        
-           
+       
+    
        const {petslostid} = this.state;
        const {breed} = this.state;
        const {petType} = this.state;
@@ -80,9 +84,13 @@ class ReportPet extends Component {
        const {phonenumber} = this.state;
        const {email} = this.state;
        const {otherDescription} = this.state;
+       
+       console.log("locationLost")
+       console.log(locationLost)
+       console.log(window.address)
    
    
-    //    console.log(this.locationLost)
+       console.log(this.locationLost)
        let data = {
         petslostid: petslostid,
         breed: breed,
@@ -93,7 +101,7 @@ class ReportPet extends Component {
         sex: sex,
         dateMissing: dateMissing,
         circumstances: circumstances,
-        locationLost: locationLost,
+        locationLost:window.address,
         username: username,
         phonenumber: phonenumber,
         email: email,
@@ -183,6 +191,20 @@ class ReportPet extends Component {
 
     handlelocationLostChange = (event) => {
         event.preventDefault();
+       
+    Geocode.fromLatLng(window.latit, window.longit).then(
+        (response) => {
+          window.address = response.results[0].formatted_address;
+          console.log(window.address);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    this.setState ({locationLost: event.target.value})
+    console.log(window.locat)
+    console.log("wht")
+    console.log(window.address)
        
     };
 
@@ -421,19 +443,11 @@ class ReportPet extends Component {
                      />
                  </Form.Group>
 
-                 {/* <Form.Group as={Col} >
-                    <Form.Label>Location</Form.Label>
-                    <Form.Control type="locationLost" 
-                     placeholder="Enter your Location lost" 
-                     id = "locationLost"
-                     className = "form-control"
-                     onChange = {this.handlelocationLostChange}
-                     
-                     />
-                 </Form.Group> */}
                  </Form.Row>
                  <Form.Row>
-                 <button id="locationLost" type = "button" onClick = {this.loc} class="btn btn-info btn-sm">Share Location</button>
+                 return <button 
+                     
+        onClick={this.handlelocationLostChange.bind(this)}>Share location where pet is lost</button>;
                 
 
 
@@ -579,7 +593,9 @@ class ReportPet extends Component {
                  </div>
                  </div >
                  </div >  */}
+                 
                  </div > 
+                 
                  
     );
     }
@@ -591,3 +607,29 @@ const mapStateToProps = state =>({
   })
 
 export default connect(mapStateToProps)(ReportPet);
+
+function getAddressFromCoordinates({ latitude, longitude }) {
+    return new Promise((resolve) => {
+      const url = `https://reverse.geocoder.ls.hereapi.com/6.2/reversegeocode.json?apiKey=${"AIzaSyBcmt-Myz4u8UZFo825k2jSJIZxss7QE4w"}=${latitude},${longitude}`
+      fetch(url)
+        .then(res => res.json())
+        .then((resJson) => {
+          // the response had a deeply nested structure :/
+          if (resJson
+            && resJson.Response
+            && resJson.Response.View
+            && resJson.Response.View[0]
+            && resJson.Response.View[0].Result
+            && resJson.Response.View[0].Result[0]) {
+            resolve(resJson.Response.View[0].Result[0].Location.Address.Label)
+          } else {
+            resolve()
+          }
+        })
+        .catch((e) => {
+          console.log('Error in getAddressFromCoordinates', e)
+          resolve()
+        })
+    })
+  }
+
