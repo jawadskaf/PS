@@ -31,6 +31,7 @@ class ReportPet extends Component {
             lat: "",
             long: "",
             coordinates:"",
+            buttonState: "",
 
         };
         
@@ -191,6 +192,7 @@ class ReportPet extends Component {
 
     handlelocationLostChange = (event) => {
         event.preventDefault();
+        
        
     Geocode.fromLatLng(window.latit, window.longit).then(
         (response) => {
@@ -205,6 +207,9 @@ class ReportPet extends Component {
     console.log(window.locat)
     console.log("wht")
     console.log(window.address)
+    return new Promise(function(resolve, reject) {
+        setTimeout(resolve, 3000)
+      })
        
     };
 
@@ -220,7 +225,7 @@ class ReportPet extends Component {
             <div
             class="bg_image"
             style={{
-              backgroundImage: 'url("dogbg2.jpg")',
+              backgroundImage: 'url("petlostbg5.jpg")',
               backgroundSize: "cover",
               height: "200vh",
               
@@ -324,7 +329,7 @@ class ReportPet extends Component {
                 
                  <Form.Group as={Col} >
           <Form.Label>Pet Color</Form.Label>
-          <Form.Control type="color" 
+          <Form.Control type="text" 
           placeholder="Enter Pet Color"
           id = "color"
           className = "form-control"
@@ -445,9 +450,9 @@ class ReportPet extends Component {
 
                  </Form.Row>
                  <Form.Row>
-                 return <button 
-                     
-        onClick={this.handlelocationLostChange.bind(this)}>Share location where pet is lost</button>;
+                 <ProgressButton 
+                
+        onClick={this.handlelocationLostChange.bind(this)}>Share location where pet is lost</ProgressButton>
                 
 
 
@@ -488,111 +493,17 @@ class ReportPet extends Component {
                             name="btn"
                             type="submit"
                             onClick= {this.RegisterClickHandler}
-                            className = "btn btn-dark btn-block"
+                            className = "btn btn-success btn-block"
+                            
                         >
-                            Adopt
+                            Submit
                             
                         </button>
 
          
           </Form>
           </div>
-            {/* <div className="row mt-3">
-                <div className="col-md-5 center">
-                    <div className="card card-body">
-                    <li className="navbar-brand">
-                     <a className="navbar-brand" >
-                      <img src="petshelterlogo.png" width="40%" className="floatright" alt=""></img>
-                    </a>
-                     </li>
-                        <h1 className="text-center mb-3">
-                            <i className="fas fa-sign-in-alt">
-                            </i>
-                Register
-                </h1>
-
-
-                        <div className="form-group">
-                            <label>username</label>
-                            <input
-                                type="username"
-                                id = "username"
-                                className="form-control"
-                                onChange = {this.handleNameChange}
-                           />
-                        </div>
-                        <div className="form-group">
-                            <label>password</label>
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                className="form-control"
-                                onChange= {this.handlePasswordChange}
-                         />
-                        </div>
-
-                        <div className="form-group">
-                            <label>age</label>
-                            <input
-                                type="date"
-                                id= "age"
-                                className="form-control"
-                                onChange= {this.handleAgeChange}
-                         />
-                        </div>
-
-                        <div className="form-group">
-                            <label>address</label>
-                            <input
-                                type="address"
-                                id = "address"
-                                className="form-control"
-                                onChange= {this.handleAddressChange}
-                         />
-                        </div>
-
-                        <div className="form-group">
-                            <label>email</label>
-                            <input
-                                type="email"
-                                id= "email"
-                                className="form-control"
-                                onChange= {this.handleEmailChange}
-                         />
-                        </div>
-
-                        <div className="form-group">
-                            <label>phonenumber</label>
-                            <input
-                                type="number"
-                                id = "phonenumber"
-                                className="form-control"
-                                onChange= {this.handlePhoneNumberChange}
-                         />
-                        </div>
-                     
-
-                        <button
-                            id="1"
-                            name="btn"
-                            type="submit"
-                            onClick= {this.RegisterClickHandler}
-                            className = "btn btn-dark btn-block"
-                        >
-                            Register
-                            
-                        </button>
-
-                        <p className = "lead mt-4">
-                           Already registered? <a href = "/login">Login</a>
-                        </p>
-
-                        
-
-                 </div>
-                 </div >
-                 </div >  */}
+            
                  
                  </div > 
                  
