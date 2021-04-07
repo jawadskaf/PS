@@ -265,3 +265,46 @@ table {
   text-align: center;
 
 }
+
+.textheader {
+ text-align: left;
+ font-weight: bold; 
+ font-size: 20px;
+ line-height: 20mm;
+}
+.textbody {
+  text-align: left;
+  font-size: 17px;
+  line-height: 10mm;
+  margin-top: 10px;
+}
+
+.Image {
+  
+  text-align: left;
+  
+  line-height: 20mm;
+  
+}
+div { 
+  white-space: pre-wrap;
+}
+
+.map-container-5{
+  overflow:hidden;
+  padding-bottom:40%;
+  position:relative;
+  height:0;
+  margin-top: 10px;
+  
+  }
+  .map-container-5 iframe{
+  left:0;
+  top:0;
+  position: fixed;
+  height:300px;
+  width: 400px;
+  position:absolute;
+  margin:0px auto;
+  text-align: left;
+  }

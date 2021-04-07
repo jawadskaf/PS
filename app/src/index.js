@@ -33,6 +33,7 @@ import AnimatedCatPage from "./components/AnimatedCatPage"
 import AdoptCats from "./components/AdoptCats"
 import ReportPet from "./components/ReportPet"
 import LostPetsPage from "./components/LostPetsPage"
+import VetsPage from "./components/VetsPage"
 
 
 // Redux setup
@@ -50,7 +51,7 @@ class RouterNavigationSample extends React.Component {
       <Router>
       <div className="container">
         <>
-          <Route exact path="/" render={props => <LostPetsPage {...props} />}/>   
+          <Route exact path="/" render={props => <VetsPage {...props} />}/>   
           <Route path="/registration" render={props => <RegistrationPage {...props} />}/>
           <Route path="/userform" render={props => <UserForm {...props} />}/>
           <Route path="/myProfile" render={props => <MyProfile {...props} />}/>
