@@ -11,8 +11,6 @@
 } */ */
 
 
-
-
 * {
   box-sizing: border-box;
 }
@@ -269,22 +267,36 @@ table {
 .textheader {
  text-align: left;
  font-weight: bold; 
- font-size: 20px;
+ font-size: 19px;
  line-height: 20mm;
+ text-indent: 30px;
 }
 .textbody {
   text-align: left;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 10mm;
   margin-top: 10px;
+  text-indent: 30px;
+  
+
+}
+
+.textbody2 {
+  text-align: left;
+  font-size: 15px;
+  line-height: 8mm;
+  margin-top: 10px;
+  text-indent: 30px;
+  padding-bottom: 80px;
+  
 }
 
 .Image {
-  
+
   text-align: left;
-  
   line-height: 20mm;
-  
+  text-indent: 30px;
+
 }
 div { 
   white-space: pre-wrap;
@@ -293,18 +305,15 @@ div {
 .map-container-5{
   overflow:hidden;
   padding-bottom:40%;
-  position:relative;
   height:0;
   margin-top: 10px;
-  
+  text-indent: 30px;
+  text-align: left;
   }
   .map-container-5 iframe{
   left:0;
   top:0;
-  position: fixed;
   height:300px;
   width: 400px;
-  position:absolute;
-  margin:0px auto;
   text-align: left;
   }
