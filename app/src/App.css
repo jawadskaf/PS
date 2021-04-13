@@ -296,11 +296,11 @@ table {
   text-align: left;
   line-height: 20mm;
   text-indent: 30px;
+  
 
 }
-div { 
-  white-space: pre-wrap;
-}
+
+
 
 .map-container-5{
   overflow:hidden;
