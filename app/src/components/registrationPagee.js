@@ -197,7 +197,9 @@ class RegistrationPage extends Component {
                         <p className = "lead mt-4">
                            Already registered? <a href = "/login">Login</a>
                         </p>
-
+                        <p className = "lead mt-4">
+                            Create Account <a href = "/">Sign up later</a>
+                        </p>
                         
 
                  </div>

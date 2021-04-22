@@ -4,8 +4,11 @@ import { adoptDog, getDogs } from "../actions/actions";
 import { connect } from 'react-redux';
 import actions from '../redux/actions/dogs';
 import PhoneInput from 'react-phone-number-input/input'
+
 import { Form, Button, FormGroup, FormControl, ControlLabel, Col } from "react-bootstrap";
 import '../App.css';
+import { Container, Header, Menu, Segment, Dropdown } from "semantic-ui-react";
+import "../App2.css";
 class AdoptDogs extends Component {
     constructor() {
         super();
@@ -28,6 +31,7 @@ class AdoptDogs extends Component {
     }
 
     componentDidMount() {
+        document.body.style = 'background: rgb(255, 243, 180);';
          this.props.dispatch(actions.getDogs());
         let dogid = ""
         let data ={
@@ -156,6 +160,7 @@ class AdoptDogs extends Component {
 
     render() {
         return (
+            
             <div
             class="bg_image"
             style={{
@@ -165,7 +170,32 @@ class AdoptDogs extends Component {
               
             }}
           > 
+         
 <div className="form">
+<div className="App"style ={{height:"18vh"}} >
+        <Segment inverted vertical textAlign="center" style ={{height:"17vh"}}>
+        
+          <Container as="nav">
+            <Header inverted as="h1">
+              Pet Shelter
+            </Header>
+            <Menu borderless compact inverted>
+              <Menu.Item href = "/">Home</Menu.Item>
+              <Menu.Item href = "/ReportPet">Report a lost pet</Menu.Item>
+              <Menu.Item href = "/LostPetsPage">View lost pets</Menu.Item>
+              <Dropdown item text='Adopt'>
+              <Dropdown.Menu>
+              <Dropdown.Item active href = "/DogsPage">Adopt a dog</Dropdown.Item>
+              <Dropdown.Item href = "/CatsPage">Adopt a cat</Dropdown.Item>
+            </Dropdown.Menu>
+                </Dropdown>
+                <Menu.Item href = "/Login">Login</Menu.Item>
+              <Menu.Item href = "/registration">Register</Menu.Item>
+            </Menu>
+          </Container>
+         
+        </Segment>
+      </div>
 <h2>Adoption Form</h2>
 <h3>Please answer the following questions</h3>
           <Form>
@@ -241,8 +271,7 @@ class AdoptDogs extends Component {
                  
                 
                  <Form.Group as={Col}>
-          <Form.Label>Do you Own -</Form.Label>
-          Own 
+          <Form.Label>Owned house</Form.Label>
           <Form.Control type="radio" 
           
           id = "house"
@@ -255,8 +284,7 @@ class AdoptDogs extends Component {
             
         </Form.Group>
         <Form.Group as={Col} >
-        <Form.Label>- Rent a house ?</Form.Label>
-        Rent
+        <Form.Label>Rented house</Form.Label>
         <Form.Control type="radio" 
           id = "house"
           value = "Rent"

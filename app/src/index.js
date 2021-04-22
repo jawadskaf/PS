@@ -35,7 +35,9 @@ import ReportPet from "./components/ReportPet"
 import LostPetsPage from "./components/LostPetsPage"
 import VetsPage from "./components/VetsPage"
 import PetsStores from "./components/PetsStores"
-
+import HomePage from "./components/HomePage"
+import DesktopContainer from "./components/HomePage"
+import HomepageLayout from "./components/HomePage"
 
 // Redux setup
 const store = configureStore();
@@ -52,7 +54,7 @@ class RouterNavigationSample extends React.Component {
       <Router>
       <div className="container">
         <>
-          <Route exact path="/" render={props => <PetsStores {...props} />}/>   
+          <Route exact path="/" render={props => <HomepageLayout {...props} />}/>   
           <Route path="/registration" render={props => <RegistrationPage {...props} />}/>
           <Route path="/userform" render={props => <UserForm {...props} />}/>
           <Route path="/myProfile" render={props => <MyProfile {...props} />}/>
@@ -75,6 +77,10 @@ class RouterNavigationSample extends React.Component {
           <Route path="/AnimatedDogPage" render={props => <AnimatedDogPage {...props} />}/>
           <Route path="/AnimatedCatPage" render={props => <AnimatedCatPage {...props} />}/>
           <Route path="/AdoptCats" render={props => <AdoptCats {...props} />}/>
+          <Route path="/DogsPage" render={props => <DogsPage {...props} />}/>
+          <Route path="/CatsPage" render={props => <CatsPage {...props} />}/>
+          <Route path="/ReportPet" render={props => <ReportPet {...props} />}/>
+          <Route path="/LostPetsPage" render={props => <LostPetsPage {...props} />}/>
           {/* <Route path="/" render={props => <MedicineOrderPage {...props} />}/> */}
           {/* <Route path="/" render={props => <Table1 {...props} />}/> */}
         </>

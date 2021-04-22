@@ -7,6 +7,8 @@ import { Button } from 'react-bootstrap';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import '../App.css';
 import Particles from "react-tsparticles";
+import { Container, Header, Menu, Segment, Dropdown } from "semantic-ui-react";
+import "../App2.css";
 class CatsPage extends Component {
     constructor(){
         super();
@@ -18,6 +20,7 @@ class CatsPage extends Component {
     }
    
     componentDidMount() {
+      document.body.style = 'background: rgb(51, 51, 51);';
       this.props.dispatch(actions.getCats());
       console.log(actions.getCats())
        // this.retrieveUsers();
@@ -100,6 +103,30 @@ class CatsPage extends Component {
           
 
           <div className="container">
+            <div className="App"style ={{height:"18vh"}} >
+        <Segment inverted vertical textAlign="center" style ={{height:"17vh"}}>
+        
+          <Container as="nav">
+            <Header inverted as="h1">
+              Pet Shelter
+            </Header>
+            <Menu borderless compact inverted>
+              <Menu.Item href = "/">Home</Menu.Item>
+              <Menu.Item href = "/ReportPet">Report a lost pet</Menu.Item>
+              <Menu.Item href = "/LostPetsPage">View lost pets</Menu.Item>
+              <Dropdown item text='Adopt'>
+              <Dropdown.Menu>
+              <Dropdown.Item href = "/DogsPage">Adopt a dog</Dropdown.Item>
+              <Dropdown.Item href = "/CatsPage">Adopt a cat</Dropdown.Item>
+            </Dropdown.Menu>
+                </Dropdown>
+                <Menu.Item href = "/Login">Login</Menu.Item>
+              <Menu.Item href = "/registration">Register</Menu.Item>
+            </Menu>
+          </Container>
+         
+        </Segment>
+      </div>
         <BootstrapTable bordered={false} data={this.props.cat} version="4" pagination options={options}
                 search tableContainerClass={`table-striped table-bordered table-hover table-sm `}
                 selectRow={selectRow} >

@@ -8,7 +8,8 @@ import { getCats } from "../actions/actions";
 import '../App.css';
 import { supported } from "filepond";
 import { Button } from "react-bootstrap";
-
+import { Container, Header, Menu, Segment, Dropdown } from "semantic-ui-react";
+import "../App2.css";
 class AnimatedCatPage extends Component {
   constructor(){
   super();
@@ -18,6 +19,7 @@ class AnimatedCatPage extends Component {
   this.handleClickManager = this.handleClickManager.bind(this);
   }
   componentDidMount() {
+    document.body.style = 'background: rgb(51, 51, 51);';
   this.state.catid = this.props.location.state.catid
   console.log(this.state.catid)
 }
@@ -43,6 +45,30 @@ class AnimatedCatPage extends Component {
   return (
    
     <div>
+      <div className="App"style ={{height:"18vh"}} >
+        <Segment inverted vertical textAlign="center" style ={{height:"17vh"}}>
+        
+          <Container as="nav">
+            <Header inverted as="h1">
+              Pet Shelter
+            </Header>
+            <Menu borderless compact inverted>
+              <Menu.Item href = "/">Home</Menu.Item>
+              <Menu.Item href = "/ReportPet">Report a lost pet</Menu.Item>
+              <Menu.Item href = "/LostPetsPage">View lost pets</Menu.Item>
+              <Dropdown item text='Adopt'>
+              <Dropdown.Menu>
+              <Dropdown.Item href = "/DogsPage">Adopt a dog</Dropdown.Item>
+              <Dropdown.Item href = "/CatsPage">Adopt a cat</Dropdown.Item>
+            </Dropdown.Menu>
+                </Dropdown>
+                <Menu.Item href = "/Login">Login</Menu.Item>
+              <Menu.Item href = "/registration">Register</Menu.Item>
+            </Menu>
+          </Container>
+         
+        </Segment>
+      </div>
       <AnimatedBg
         colors={this.imagesList}
         duration={2}
@@ -52,13 +78,12 @@ class AnimatedCatPage extends Component {
         
       >
         <div className="App">
-          
+        
     
         </div>
      
       <div className = "textd">
       <div className = "textd2"> Before Adopting</div>
-      <div>➤ Be at least 18 years of age</div>
       <div>➤ Understand that adopting can be a up to 10 years commitment and more</div>
       <div>➤ Be prepared for ongoing expenses and veterinary care</div>
       <div>➤ Agree that if for any reason the adoption does not work out then the animal will be returned to Pet Shelter</div>

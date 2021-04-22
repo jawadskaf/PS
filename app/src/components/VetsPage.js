@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import '../App.css';
 import { Button } from "react-bootstrap";
 import Image from 'react-bootstrap/Image'
+import { Container, Header, Menu, Segment, Dropdown } from "semantic-ui-react";
+import "../App2.css";
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class VetsPage extends Component {
@@ -38,6 +40,30 @@ class VetsPage extends Component {
       backgroundColor: 'WHITE',
       
     }}>
+      <div className="App"style ={{height:"18vh"}} >
+        <Segment inverted vertical textAlign="center" style ={{height:"17vh"}}>
+        
+          <Container as="nav">
+            <Header inverted as="h1">
+              Pet Shelter
+            </Header>
+            <Menu borderless compact inverted>
+              <Menu.Item href = "/">Home</Menu.Item>
+              <Menu.Item href = "/ReportPet">Report a lost pet</Menu.Item>
+              <Menu.Item href = "/LostPetsPage">View lost pets</Menu.Item>
+              <Dropdown item text='Adopt'>
+              <Dropdown.Menu>
+              <Dropdown.Item href = "/DogsPage">Adopt a dog</Dropdown.Item>
+              <Dropdown.Item href = "/CatsPage">Adopt a cat</Dropdown.Item>
+            </Dropdown.Menu>
+                </Dropdown>
+                <Menu.Item href = "/Login">Login</Menu.Item>
+              <Menu.Item href = "/registration">Register</Menu.Item>
+            </Menu>
+          </Container>
+         
+        </Segment>
+      </div>
       <AnimatedBg
         colors={this.imagesList}
         duration={3}
@@ -62,7 +88,7 @@ class VetsPage extends Component {
 <div>Lebanon. If you’re a pet parent, you know that finding help when it</div>
 <div>concerns your dog or cat can be overwhelming and confusing. Whether</div>
 <div>you need an answer to a question, pet supplies and food, or urgent</div>
-<div>medical care for you pet, it helps to know where to reach out when you</div>
+<div>medical care for your pet, it helps to know where to reach out when you</div>
 <div>are facing a problem. We at Pet Shelter know how much you care about the</div>
 <div>well-being of your pets, and so we’ve assembled a non-exhaustive list of</div>
 <div>veterinarians and pet care centers across Lebanon who are available 24/7</div>

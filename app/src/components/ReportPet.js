@@ -7,6 +7,8 @@ import PhoneInput from 'react-phone-number-input/input'
 import Geocode from 'react-geocode'
 import { Form, Button, FormGroup, FormControl, ControlLabel, Col } from "react-bootstrap";
 import ProgressButton from 'react-progress-button'
+import { Container, Header, Menu, Segment, Dropdown } from "semantic-ui-react";
+import "../App2.css";
 // var geocoder= new google.maps.Geocoder();
 import '../App.css';
 
@@ -43,6 +45,7 @@ class ReportPet extends Component {
     
 
     componentDidMount() {
+      document.body.style = 'background: rgb(137, 208, 137);';
          this.props.dispatch(actions.getLostPets());
           Geocode.setApiKey("AIzaSyBcmt-Myz4u8UZFo825k2jSJIZxss7QE4w");
          Geocode.setLanguage("en");
@@ -232,6 +235,30 @@ class ReportPet extends Component {
             }}
           > 
 <div className="form">
+<div className="App"style ={{height:"18vh"}} >
+        <Segment inverted vertical textAlign="center" style ={{height:"17vh"}}>
+        
+          <Container as="nav">
+            <Header inverted as="h1">
+              Pet Shelter
+            </Header>
+            <Menu borderless compact inverted>
+              <Menu.Item href = "/">Home</Menu.Item>
+              <Menu.Item active href = "/ReportPet">Report a lost pet</Menu.Item>
+              <Menu.Item href = "/LostPetsPage">View lost pets</Menu.Item>
+              <Dropdown item text='Adopt'>
+              <Dropdown.Menu>
+              <Dropdown.Item href = "/DogsPage">Adopt a dog</Dropdown.Item>
+              <Dropdown.Item href = "/CatsPage">Adopt a cat</Dropdown.Item>
+            </Dropdown.Menu>
+                </Dropdown>
+                <Menu.Item href = "/Login">Login</Menu.Item>
+              <Menu.Item href = "/registration">Register</Menu.Item>
+            </Menu>
+          </Container>
+         
+        </Segment>
+      </div>
 <h2>Report a lost pet Form</h2>
 <h3>Please fill the following questions</h3>
           <Form>

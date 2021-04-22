@@ -131,7 +131,7 @@ toggleRememberMe = value => {
         style={{
           backgroundImage: 'url("petshelterbg2.jpg")',
           backgroundSize: "cover",
-          height: "100vh",
+          height: "95vh",
           
         }}
       >
@@ -199,6 +199,9 @@ toggleRememberMe = value => {
 
                         <p className = "lead mt-4">
                             Create Account <a href = "/registration">Register</a>
+                        </p>
+                        <p className = "lead mt-4">
+                            Create Account <a href = "/">Log in later</a>
                         </p>
                         
 

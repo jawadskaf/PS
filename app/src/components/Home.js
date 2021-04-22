@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
-import { Nav, Navbar,Dropdown,DropdownButton } from 'react-bootstrap'
+import { Nav, Navbar,Dropdown,DropdownButton, Container } from 'react-bootstrap'
 import '../App.css';
 
 class HomePage extends Component {
@@ -22,13 +22,15 @@ class HomePage extends Component {
     render() {
       return (
 
-        
-        
-       
         <div>
           <link href="/GameOfThrones" rel="stylesheet" />
-           <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-           <a class="navbar-brand" href="/Home">
+           <Navbar collapseOnSelect fixed="top" epand = "sm" bg="dark" variant="dark">
+          <Container>
+          <Navbar.Toggle aria-controls = 'responsive-navbar-nav'/>
+          <Navbar.Collapse id = 'responsive-navbar-nav'>
+          
+
+           <a class="responsive-navbar-nav" href="/Home">
            
            
            {/* <Navbar.Brand href="/Home">Jawads Pharmacy</Navbar.Brand> */}
@@ -59,6 +61,8 @@ class HomePage extends Component {
       
 
     </Nav>
+    </Navbar.Collapse>
+    </Container>
           </Navbar>
           
 
