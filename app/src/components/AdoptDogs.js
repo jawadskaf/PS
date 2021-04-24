@@ -81,12 +81,13 @@ class AdoptDogs extends Component {
        }
        else {
            alert("Couldnt adopt dog")
+           this.redirectToHome()
        }
     };
 
     redirectToHome = () => {
         const { history } = this.props;
-        if(history) history.push('/Home');
+        if(history) history.push('/');
       }
 
 
@@ -152,11 +153,6 @@ class AdoptDogs extends Component {
     };
 
     
-
-    
-
-    
-
 
     render() {
         return (

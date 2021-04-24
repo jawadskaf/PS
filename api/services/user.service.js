@@ -663,3 +663,32 @@ exports.adoptCat = (req, res) => {
     });
   })
 };
+
+exports.feedback = (req, res) => {
+
+   const {feedback} = req.body;
+   let sql = `INSERT INTO FEEDBACK (feedback) VALUES ("${feedback}")`;
+  console.log(sql)
+   pool.getConnection((err, connection)=>{
+     if(err) throw err;
+     try{
+       connection.query(sql, (err, result)=>{
+         connection.release();
+         if(err)
+         {
+           res.status(500).send({
+             message: 'The query not OK',
+             error: err,
+           })
+         }
+         res.status(200).send({
+           message: 'feedback INSERTED TO THE DATABASE',
+           result: result,
+         });
+       })
+     }catch(err)
+     {
+       res.status(500).send({message: 'An internal error occured.'});
+     }
+   })
+ };

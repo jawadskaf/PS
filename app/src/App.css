@@ -265,7 +265,10 @@ min-height:75px !important;
 table {
   table-layout: fixed;
   text-align: center;
-
+  font-size: 18px;
+  font-style: oblique;
+  background-color: #ED5565;
+  
 }
 
 .textheader {
@@ -326,6 +329,5 @@ table {
     font-size: 17px;
   }
 
-  .form-group{
-    
-  }
+
+

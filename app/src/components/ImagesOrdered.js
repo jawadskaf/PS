@@ -13,7 +13,7 @@ class ImagesOrdered extends Component {
     constructor(){
         super();
         // this.deleteRecord = this.deleteRecord.bind(this);
-        this.fillForm = this.fillForm.bind(this);
+        // this.fillForm = this.fillForm.bind(this);
         this.state = {
         };
     }
@@ -49,7 +49,7 @@ class ImagesOrdered extends Component {
   
         if(item.imageid === cell)
         {
-          this.fillForm(item);
+          // this.fillForm(item);
         }
       })
     }
@@ -80,7 +80,7 @@ class ImagesOrdered extends Component {
         bgColor: 'green'
       };
       const options = {
-        sortName: 'userid',
+        sortName: 'imageid',
         sortOrder: 'asc',
         sizePerPage: 50,
         paginationSize: 5,
@@ -100,12 +100,9 @@ class ImagesOrdered extends Component {
                 Product ID
                 </TableHeaderColumn>
 
-                <TableHeaderColumn width="150px" columnClassName="table-secondary" dataField="image" dataSort>
+                <TableHeaderColumn width="150px" dataField="image" dataFormat={imageFormatter} dataSort>
                 Healthcare Product
                 </TableHeaderColumn>
-
-           
-
 
                 <TableHeaderColumn width="100px" columnClassName="table-warning" dataField="imageid" dataFormat={this.actionFormatter.bind(this)}>
                   
@@ -124,3 +121,6 @@ const mapStateToProps = state =>({
 
 export default connect(mapStateToProps)(ImagesOrdered);
 
+function imageFormatter(cell, row){
+  return "<img src='"+cell+"'/>" ;
+}

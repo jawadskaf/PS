@@ -3,10 +3,11 @@ body {
   -moz-font-smoothing: grayscale;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1168px) {
   .ui.container {
-    width: 700px;
-    max-width: 700px;
+    width: 900px;
+    max-width: 900px;
+
   }
 
   nav.ui.container .ui.header {
@@ -84,4 +85,24 @@ nav.ui.container .ui.inverted.compact.menu .active.item {
 
 .ui.inverted.vertical.segment footer.ui.segment a {
   color: white;
+}
+
+
+.container {
+  position: relative;
+}
+
+.text-block {
+  position: absolute;
+  bottom: -250px;
+  right: 50px;
+
+  color: white;
+  /* padding-left: 20px;
+  padding-right: 20px; */
+}
+
+.buttonHome {
+  position: absolute;
+  bottom: -250px;
 }

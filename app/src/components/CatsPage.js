@@ -29,9 +29,9 @@ class CatsPage extends Component {
     actionFormatter(cell) {
       return (
         
-        <div className={`d-flex justify-content-between`}>
+        <div className={``}>
           
-          <Button className="btn-secondary btn-sm" onClick={()=>this.editDetails(cell)}>Adopt
+          <Button size="lg" style = {{backgroundColor: 'pink', height: '150px', width: '80px' }}variant="outline-dark" onClick={()=>this.editDetails(cell)}>Adopt
          
           </Button>
           
@@ -128,44 +128,50 @@ class CatsPage extends Component {
         </Segment>
       </div>
         <BootstrapTable bordered={false} data={this.props.cat} version="4" pagination options={options}
-                search tableContainerClass={`table-striped table-bordered table-hover table-sm `}
+                search tableContainerClass={`table `}
                 selectRow={selectRow} >
 {/* d-flex flex-column */}
-                <TableHeaderColumn width="50px" columnClassName="table-primary" dataField="catid" isKey>
+
+                <TableHeaderColumn width="200px" columnClassName="table-danger" dataField="catImage" dataFormat ={imageFormatter}>
+                Cat Image
+                </TableHeaderColumn>
+
+
+                <TableHeaderColumn width="50px" columnClassName="table-danger" dataField="catid" isKey>
                 id
                 </TableHeaderColumn>
 
-                <TableHeaderColumn width="100px" columnClassName="table-secondary"dataField="catName" dataSort>
+                <TableHeaderColumn width="90px" columnClassName="table-danger"dataField="catName" dataSort>
                 catname
                 </TableHeaderColumn>
 
-                <TableHeaderColumn width="150px" columnClassName="table-success"dataField="breed">
+                <TableHeaderColumn width="100px" columnClassName="table-danger"dataField="breed">
                 breed
                 </TableHeaderColumn>
 
-                <TableHeaderColumn width="100px"columnClassName="table-danger" dataField="DOB">
+                <TableHeaderColumn width="170px"columnClassName="table-danger" dataField="DOB">
                 DOB
                 </TableHeaderColumn>
 
-                <TableHeaderColumn width="100px"columnClassName="table-warning" dataField="sex">
+                <TableHeaderColumn width="100px"columnClassName="table-danger" dataField="sex">
                 sex
                 </TableHeaderColumn>
 
-                <TableHeaderColumn width="100px"columnClassName="table-info" dataField="color">
+                <TableHeaderColumn width="150px"columnClassName="table-danger" dataField="color">
                 color
                 </TableHeaderColumn>
 
-                <TableHeaderColumn width="100px" columnClassName="table-light"dataField="size">
+                <TableHeaderColumn width="100px" columnClassName="table-danger"dataField="size">
                 size
                 </TableHeaderColumn>
 
-                <TableHeaderColumn width="100px" columnClassName="table-light"dataField="description">
+                <TableHeaderColumn width="100px" columnClassName="table-danger"dataField="description">
                 description
                 </TableHeaderColumn>
 
 
 
-                <TableHeaderColumn width="100px"columnClassName="table-primary" dataField="catid" dataFormat={this.actionFormatter.bind(this)}>
+                <TableHeaderColumn width="100px"columnClassName="table-danger" dataField="catid" dataFormat={this.actionFormatter.bind(this)}>
                   
                 </TableHeaderColumn>
                 
@@ -263,3 +269,6 @@ const mapStateToProps = state =>({
 })
 export default connect(mapStateToProps)(CatsPage);
 
+function imageFormatter(cell, row){
+  return "<img width = 100% src='"+cell+" '/> " ;
+}

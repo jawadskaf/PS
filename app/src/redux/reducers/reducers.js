@@ -8,6 +8,7 @@ import imageReducer from './imageReducer'
 import dogReducer from './dogReducer'
 import catReducer from './catReducer'
 import lostpetsReducer from './lostpetsReducer'
+import feedbackReducer from './feedbackReducer'
 
 const reducers = combineReducers({
   
@@ -19,6 +20,7 @@ const reducers = combineReducers({
    dogReducer,
    catReducer,
    lostpetsReducer,
+   feedbackReducer,
 
 });
 

@@ -88,7 +88,7 @@ class AdoptCats extends Component {
 
     redirectToHome = () => {
         const { history } = this.props;
-        if(history) history.push('/Home');
+        if(history) history.push('/');
       }
 
 

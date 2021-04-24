@@ -43,5 +43,7 @@ router.post('/adoptCat', users.adoptCat);
 router.get('/getLostPets', users.getLostPets);
 router.post('/reportPet', users.reportPet);
 
+router.post('/feedback', users.feedback);
+
 module.exports = router
 

@@ -174,6 +174,14 @@ async function reportPet(data)
   const url = `${baseURLApi}/users/reportPet`;
   return await axios.post(url, data).then(response => response.data);
 }
+
+async function feedback(data)
+{
+  const url = `${baseURLApi}/users/feedback`;
+  return await axios.post(url, data).then(response => response.data);
+}
+
+
 export {
   getUsers,
   getUser,
@@ -204,4 +212,5 @@ export {
   adoptCat,
   getLostPets,
   reportPet,
+  feedback,
 };
