@@ -41,11 +41,6 @@ async function deleteUser(data)
   return await axios.post(url, {userid: data}).then(response => response.data);
 }
 
-async function deleteMedOrder(data)
-{
-  const url = `${baseURLApi}/users/deleteMedOrder`;
-  return await axios.post(url, {medicineid: data}).then(response => response.data);
-}
 
 async function updateUser(data)
 {
@@ -54,80 +49,13 @@ async function updateUser(data)
   return await axios.post(url, data).then(response => response.data);
 }
 
-async function addMedOrder(data)
-{
-  const url = `${baseURLApi}/users/addMedOrder`;
-  return await axios.post(url, data).then(response => response.data);
-}
 
-async function getOrders() {
-  const url = `${baseURLApi}/users/orders`;
-  return await axios.get(url).then(response => response.data.data);
-}
-
-async function updateMedOrder(data)
-{
-  console.log(data)
-  const url = `${baseURLApi}/users/updateMedOrder`;
-  return await axios.post(url, data).then(response => response.data);
-}
 async function logIn(data)
 {
   const url = `${baseURLApi}/users/logIn`;
   return await axios.post(url, data).then(response => response.data);
 }
 
-async function addLabTest(data)
-{
-  const url = `${baseURLApi}/users/addLabTest`;
-  return await axios.post(url, data).then(response => response.data);
-}
-
-async function getLabTest() {
-  const url = `${baseURLApi}/users/getLabTest`;
-  return await axios.get(url).then(response => response.data.data);
-}
-
-async function deleteLabTest(data)
-{
-  const url = `${baseURLApi}/users/deleteLabTest`;
-  return await axios.post(url, {labtestid: data}).then(response => response.data);
-}
-
-async function updateLabTest(data)
-{
-  const url = `${baseURLApi}/users/updateLabTest`;
-  return await axios.post(url, data).then(response => response.data);
-}
-
-async function addHealthcareProduct(data)
-{
-  const url = `${baseURLApi}/users/addHealthcareProduct`;
-  return await axios.post(url, data).then(response => response.data);
-}
-
-async function getHealthcareProduct() {
-  const url = `${baseURLApi}/users/getHealthcareProduct`;
-  return await axios.get(url).then(response => response.data.data);
-}
-
-async function deleteHealthcareProduct(data)
-{
-  const url = `${baseURLApi}/users/deleteHealthcareProduct`;
-  return await axios.post(url, {healthcareid: data}).then(response => response.data);
-}
-
-async function updateHealthcareProduct(data)
-{
-  const url = `${baseURLApi}/users/updateHealthcareProduct`;
-  return await axios.post(url, data).then(response => response.data);
-}
-
-async function loadInfo(data)
-{
-  const url = `${baseURLApi}/users/loadInfo`;
-  return await axios.post(url,data).then(response => response.data);
-}
 
 async function addImage(data)
 {
@@ -190,20 +118,7 @@ export {
   create,
   deleteUser,
   updateUser,
-  addMedOrder,
-  getOrders,
-  deleteMedOrder,
-  updateMedOrder,
   logIn,
-  addLabTest,
-  getLabTest,
-  deleteLabTest,
-  updateLabTest,
-  addHealthcareProduct,
-  getHealthcareProduct,
-  deleteHealthcareProduct,
-  updateHealthcareProduct,
-  loadInfo,
   addImage,
   getImage,
   getDogs,

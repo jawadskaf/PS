@@ -13,36 +13,23 @@ router.post('/deleteUser', users.deleteUser);
 router.post('/updateUser',users.updateUser);
 router.post('/create',users.create);
 router.post('/logIn', users.logIn);
-//medicines order
-router.post('/addMedOrder', users.addMedOrder);
-router.get('/orders', users.getOrders);
-router.post('/deleteMedOrder', users.deleteMedOrder);
-router.post('/updateMedOrder', users.updateMedOrder);
-//lab tests
-router.post('/addLabTest', users.addLabTest);
-router.get('/getLabTest', users.getLabTest);
-router.post('/deleteLabTest', users.deleteLabTest);
-router.post('/updateLabTest', users.updateLabTest);
-//healthcare product
-router.post('/addHealthcareProduct', users.addHealthcareProduct);
-router.get('/getHealthcareProduct', users.getHealthcareProduct);
-router.post('/deleteHealthcareProduct', users.deleteHealthcareProduct);
-router.post('/updateHealthcareProduct', users.updateHealthcareProduct);
-// //custom reusable component
-router.post('/loadInfo', users.loadInfo);
 
 router.post('/addImage', users.addImage);
 router.get('/getImage', users.getImage);
 
+//Dog table
 router.get('/getDogs', users.getDogs);
 router.post('/adoptDog', users.adoptDog);
 
+//cat table
 router.get('/getCats', users.getCats);
 router.post('/adoptCat', users.adoptCat);
 
+//report lost pet table
 router.get('/getLostPets', users.getLostPets);
 router.post('/reportPet', users.reportPet);
 
+//feedback table
 router.post('/feedback', users.feedback);
 
 module.exports = router

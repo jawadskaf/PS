@@ -50,6 +50,7 @@ class RegistrationPage extends Component {
        }
        else {
            alert("Couldnt add user")
+           this.redirectToHome()
        }
     };
 

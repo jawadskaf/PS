@@ -4,7 +4,6 @@ import '../css/Table.css';
 import '../App.css';
 import { GoogleLogin,responseGoogle } from 'react-google-login';
 import { useGoogleLogin,onRequest,jsSrc,responseType,accessType,scope,uxMode,onFailure,redirectUri,discoveryDocs,isSignedIn,autoLoad,hostedDomain,loginHint,fetchBasicProfile,clientId,cookiePolicy,onAutoLoadFinished,onSuccess,loaded,signIn } from 'react-google-login'
-import CustDropDown from '../components/CustDropDown'
 import { MDBBtn, MDBIcon } from "mdbreact";
 import BackgroundImage from "react-background-image";
 class Loginpage extends Component {
@@ -109,7 +108,7 @@ toggleRememberMe = value => {
                 localStorage.setItem('user and pass',JSON.stringify(data))
                 console.log(username)
                  alert("You have successfully logged in");
-                 this.props.history.push("/Home");
+                 this.props.history.push("/");
              }
              else { 
                  alert("wrong username or password");

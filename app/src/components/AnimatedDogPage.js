@@ -61,6 +61,8 @@ class AnimatedDogPage extends Component {
               <Dropdown.Item href = "/CatsPage">Adopt a cat</Dropdown.Item>
             </Dropdown.Menu>
                 </Dropdown>
+                <Menu.Item href = "/PetsStores">Shops</Menu.Item>
+              <Menu.Item href = "/VetsPage">Vets</Menu.Item>
                 <Menu.Item href = "/Login">Login</Menu.Item>
               <Menu.Item href = "/registration">Register</Menu.Item>
             </Menu>
